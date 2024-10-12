@@ -18,20 +18,50 @@ class _AnimatedListViewState extends State<AnimatedListView> {
       publishedAt: DateTime(2023, 12, 8),
       title: "Flutter Deep Linking: The Ultimate Guide",
       tags: ["dart", "flutter", "go_router", "navigation"],
+      imageUrl: "https://codewithandrea.com/img/avatars/alicia-avatar.png",
     ),
     Article(
       publisher: "Mariia Romaniuk",
       publishedAt: DateTime(2023, 6, 21),
       title: "System Design: Chat Application",
       tags: ["system design", "architecture", "chat"],
+      imageUrl: "https://miro.medium.com/v2/1*kTb6SylLtgnjJB09imVMQw.jpeg",
     ),
     Article(
-      publisher: "Vyacheslav Egorov",
-      publishedAt: DateTime(2022, 10, 6),
-      title: "Introduction to Dart VM",
       tags: ["dart", "vm"],
+      publisher: "Vyacheslav Egorov",
+      title: "Introduction to Dart VM",
+      publishedAt: DateTime(2022, 10, 6),
+      imageUrl: "https://x.com/mraleph/photo",
+    ),
+    Article(
+      tags: ["git"],
+      publisher: "Martin Fowler",
+      publishedAt: DateTime(2020, 5, 28),
+      imageUrl: "https://martinfowler.com/mf.jpg",
+      title: "Patterns for Managing Source Code Branches",
+    ),
+    Article(
+      publisher: "Mangirdas Kazlauskas",
+      publishedAt: DateTime(2019, 10, 8),
+      tags: ["flutter", "Design Patterns"],
+      title: "Flutter Design Patterns: Introduction",
+      imageUrl: "https://pbs.twimg.com/profile_images/1670723606035267585/jO9wYBzP_400x400.jpg",
+    ),
+    Article(
+      publisher: "Andrea Bizzotto",
+      tags: ["security", "networking"],
+      publishedAt: DateTime(2024, 7, 22),
+      title: "How to Store API Keys in Flutter: --dart-define vs .env files",
+      imageUrl: "https://codewithandrea.com/img/avatars/andrea-avatar-small.png",
     ),
   ];
+
+  // represents the index of the card that is currently being hovered
+  int? hoveredIndex;
+
+  final defaultCurve = Curves.ease;
+  final defaultDuration = Durations.short4;
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +74,6 @@ class _AnimatedListViewState extends State<AnimatedListView> {
           style: TextStyle(color: Colors.white),
         ),
       ),
-
       body: SizedBox(
         height: 400,
         child: ListView.builder(
@@ -54,26 +83,34 @@ class _AnimatedListViewState extends State<AnimatedListView> {
           itemBuilder: (context, index) {
             final article = articles[index];
 
-            return Align(
-              alignment: Alignment.centerRight,
-              widthFactor: index == 0 ? 1 : 0.67,
-              child: _ArticleCard(article: article),
+            final widthFactor = index == hoveredIndex ? 1.0 : 0.6;
+            final turns = index == hoveredIndex ? 0.01 : 0.0;
+            final offset = Offset(0, index == hoveredIndex ? -0.05 : 0);
+
+            return AnimatedAlign(
+              curve: defaultCurve,
+              widthFactor: widthFactor,
+              duration: defaultDuration,
+              alignment: Alignment.centerLeft,
+              child: AnimatedSlide(
+                offset: offset,
+                curve: defaultCurve,
+                duration: defaultDuration,
+                child: AnimatedRotation(
+                  turns: turns,
+                  curve: defaultCurve,
+                  duration: defaultDuration,
+                  child: MouseRegion(
+                    child: _ArticleCard(article: article),
+                    onEnter: (event) => setState(() => hoveredIndex = index),
+                    onExit: (event) => setState(() => hoveredIndex = null),
+                  ),
+                ),
+              ),
             );
           },
         ),
       ),
-      // body: Stack(
-      //   children: articles.map((article) {
-      //     final index = articles.indexOf(article);
-
-      //     return Positioned(
-      //       top: 0,
-      //       bottom: 0,
-      //       left: _articleCardWidth + (index * (_articleCardWidth / 1.67)),
-      //       child: UnconstrainedBox(child: _ArticleCard(article: article)),
-      //     );
-      //   }).toList(),
-      // ),
     );
   }
 }
@@ -153,7 +190,10 @@ class _ArticleCard extends StatelessWidget {
               const SizedBox(height: 12),
               Row(
                 children: [
-                  const CircleAvatar(radius: 18),
+                  CircleAvatar(
+                    radius: 18,
+                    foregroundImage: NetworkImage(article.imageUrl),
+                  ),
                   const SizedBox(width: 8),
                   Text(
                     article.publisher,
@@ -175,13 +215,15 @@ class _ArticleCard extends StatelessWidget {
 
 class Article {
   const Article({
-    required this.title,
     required this.tags,
+    required this.title,
+    required this.imageUrl,
     required this.publisher,
     required this.publishedAt,
   });
 
   final String title;
+  final String imageUrl;
   final String publisher;
   final List<String> tags;
   final DateTime publishedAt;
