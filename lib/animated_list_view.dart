@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
 const _articleCardHeight = 300.0;
@@ -28,11 +29,11 @@ class _AnimatedListViewState extends State<AnimatedListView> {
       imageUrl: "https://miro.medium.com/v2/1*kTb6SylLtgnjJB09imVMQw.jpeg",
     ),
     Article(
-      tags: ["dart", "vm"],
-      publisher: "Vyacheslav Egorov",
-      title: "Introduction to Dart VM",
-      publishedAt: DateTime(2022, 10, 6),
-      imageUrl: "https://x.com/mraleph/photo",
+      publisher: "Matt Sullivan",
+      publishedAt: DateTime(2019, 1, 4),
+      tags: ["dart", "garbage collector"],
+      title: "Flutter: Don’t Fear the Garbage Collector",
+      imageUrl: "https://miro.medium.com/v2/0*cgL8XWJBpDSy2mHs.jpg",
     ),
     Article(
       tags: ["git"],
@@ -155,9 +156,13 @@ class _ArticleCard extends StatelessWidget {
                 text: TextSpan(
                   style: const TextStyle(fontSize: 16, color: Color(0xffd4d4d4)),
                   children: [
-                    const TextSpan(text: "Article "),
+                    TextSpan(
+                      text: "Article ",
+                      style: GoogleFonts.merriweather(fontSize: 14, fontWeight: FontWeight.bold),
+                    ),
                     TextSpan(
                       text: 'on ${DateFormat("MMM dd, yyyy").format(article.publishedAt)}',
+                      style: GoogleFonts.merriweather(fontSize: 14, color: const Color(0xff777777)),
                     ),
                   ],
                 ),
@@ -167,11 +172,12 @@ class _ArticleCard extends StatelessWidget {
                 article.title,
                 style: const TextStyle(
                   fontSize: 21,
+                  letterSpacing: -0.5,
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(height: 12),
+              const SizedBox(height: 16),
               Wrap(
                 spacing: 16,
                 children: [
@@ -180,6 +186,7 @@ class _ArticleCard extends StatelessWidget {
                       article.tags[index].toUpperCase(),
                       style: const TextStyle(
                         fontSize: 11,
+                        letterSpacing: -0.5,
                         color: Color(0xffff7a18),
                         fontWeight: FontWeight.bold,
                       ),
@@ -187,7 +194,7 @@ class _ArticleCard extends StatelessWidget {
                   }),
                 ],
               ),
-              const SizedBox(height: 12),
+              const SizedBox(height: 16),
               Row(
                 children: [
                   CircleAvatar(
@@ -197,8 +204,8 @@ class _ArticleCard extends StatelessWidget {
                   const SizedBox(width: 8),
                   Text(
                     article.publisher,
-                    style: const TextStyle(
-                      fontSize: 16,
+                    style: GoogleFonts.merriweather(
+                      fontSize: 14,
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
