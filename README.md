@@ -1,16 +1,14 @@
-# rich_animation_widgets
+### Rich Animation Widgets
 
-A new Flutter project.
+### About
 
-## Getting Started
+Building C😎🥶l looking animations found online to challenge myself and out of curiosity.
 
-This project is a starting point for a Flutter application.
+<br/>
+<br/>
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<a href="https://github.com/Alvish0407/rich_animation_widgets/blob/main/lib/animated_list_view.dart"><img src="https://github.com/user-attachments/assets/212bb3c1-4514-4b51-bda2-86792496df3d" width="500" /></a>
+<h3>Animated List View</h3>
+<p>Uses a ListView, MouseRegion and Implicit Animated Widgets. That's all.</p>
+<a href="https://github.com/Alvish0407/rich_animation_widgets/blob/main/lib/animated_list_view.dart">View Code</a>
+<br/><br/><br/><br/><br/><br/>
