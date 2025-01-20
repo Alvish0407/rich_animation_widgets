@@ -47,7 +47,8 @@ class _AnimatedListViewState extends State<AnimatedListView> {
       publishedAt: DateTime(2019, 10, 8),
       tags: ["flutter", "Design Patterns"],
       title: "Flutter Design Patterns: Introduction",
-      imageUrl: "https://pbs.twimg.com/profile_images/1670723606035267585/jO9wYBzP_400x400.jpg",
+      imageUrl:
+          "https://kazlauskas.dev/assets/images/mk_avatar-fd7d4203922c26b69277578884eeb92a.png",
     ),
     Article(
       publisher: "Andrea Bizzotto",
