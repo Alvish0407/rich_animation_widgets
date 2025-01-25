@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AppleTvCarousal extends StatefulWidget {
@@ -89,6 +90,17 @@ class _AppleTvCarousalState extends State<AppleTvCarousal> {
               }(),
           ],
         ),
+      ),
+      bottomNavigationBar: CupertinoTabBar(
+        iconSize: 24,
+        activeColor: CupertinoColors.activeBlue,
+        items: const [
+          BottomNavigationBarItem(icon: Icon(CupertinoIcons.house_fill), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(CupertinoIcons.tv_fill), label: "Apple TV+"),
+          BottomNavigationBarItem(icon: Icon(CupertinoIcons.bag_fill), label: "Store"),
+          BottomNavigationBarItem(icon: Icon(CupertinoIcons.square_stack_fill), label: "Library"),
+          BottomNavigationBarItem(icon: Icon(CupertinoIcons.search), label: "Search"),
+        ],
       ),
     );
   }
