@@ -13,7 +13,7 @@ Building C😎🥶l looking animations found online to challenge myself and out 
 <br/><br/>
 
 <h3>Apple TV Carousal</h3>
-<a href="https://github.com/Alvish0407/rich_animation_widgets/blob/main/lib/animated_list_view.dart">View Code</a>
+<a href="https://github.com/Alvish0407/rich_animation_widgets/blob/main/lib/apple_tv_carousal.dart">View Code</a>
 <br/><br/>
 <a href="https://github.com/Alvish0407/rich_animation_widgets/blob/main/lib/apple_tv_carousal.dart"><img src="https://github.com/user-attachments/assets/2c553a81-263d-4c94-b84e-af228874c940" /></a>
 <br/><br/><br/><br/>
