@@ -3,14 +3,14 @@ import 'dart:developer';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class AppleTvCarousal extends StatefulWidget {
-  const AppleTvCarousal({super.key});
+class AppleTvCarousel extends StatefulWidget {
+  const AppleTvCarousel({super.key});
 
   @override
-  State<AppleTvCarousal> createState() => _AppleTvCarousalState();
+  State<AppleTvCarousel> createState() => _AppleTvCarouselState();
 }
 
-class _AppleTvCarousalState extends State<AppleTvCarousal> {
+class _AppleTvCarouselState extends State<AppleTvCarousel> {
   late final CarouselController controller;
 
   @override
@@ -82,7 +82,7 @@ class _AppleTvCarousalState extends State<AppleTvCarousal> {
                   left: 0,
                   right: 0,
                   bottom: 15,
-                  child: _CarousalIndicators(
+                  child: _CarouselIndicators(
                     length: posters.length,
                     currentIndex: currentIndex,
                   ),
@@ -106,8 +106,8 @@ class _AppleTvCarousalState extends State<AppleTvCarousal> {
   }
 }
 
-class _CarousalIndicators extends StatefulWidget {
-  const _CarousalIndicators({
+class _CarouselIndicators extends StatefulWidget {
+  const _CarouselIndicators({
     required this.length,
     required this.currentIndex,
   });
@@ -116,10 +116,10 @@ class _CarousalIndicators extends StatefulWidget {
   final int currentIndex;
 
   @override
-  State<_CarousalIndicators> createState() => _CarousalIndicatorsState();
+  State<_CarouselIndicators> createState() => _CarouselIndicatorsState();
 }
 
-class _CarousalIndicatorsState extends State<_CarousalIndicators> {
+class _CarouselIndicatorsState extends State<_CarouselIndicators> {
   final indicatorRadius = 7.0;
 
   final _animationDuration = const Duration(milliseconds: 250);
