@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rich_animation_widgets/animated_list_view.dart';
+import 'package:rich_animation_widgets/apple_tv_carousal.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
         useMaterial3: true,
       ),
-      home: const AnimatedListView(),
+      home: const AppleTvCarousal(),
     );
   }
 }
